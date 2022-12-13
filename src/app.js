@@ -8,7 +8,7 @@ const path = require("path");
 const cors = require("cors");
 const port = process.env.PORT || 4000;
 
-app.use(cors({ credentials: true, origin: 'https://cheapstore-client.vercel.app/' }));
+app.use(cors({ credentials: true, origin: 'https://cheapstore-client.vercel.app' }));
 
 
 const io = new Server(server);
