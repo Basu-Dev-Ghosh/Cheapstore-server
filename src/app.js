@@ -8,6 +8,7 @@ const path = require("path");
 const cors = require("cors");
 const port = process.env.PORT || 4000;
 
+app.use(cors({ credentials: true, origin: 'https://cheapstore-client.vercel.app/' }));
 
 
 const io = new Server(server);
@@ -21,7 +22,6 @@ require("./db/conn");
 const cookieParser = require("cookie-parser");
 const router = require("./routers/router");
 
-app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
