@@ -25,7 +25,7 @@ require("./db/conn");
 const cookieParser = require("cookie-parser");
 const router = require("./routers/router");
 
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors());
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -74,11 +74,4 @@ io.on("connection", (socket) => {
 });
 
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  const path = require("path");
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
 server.listen(port, () => console.log(`Server Starts on port ${port}`));
