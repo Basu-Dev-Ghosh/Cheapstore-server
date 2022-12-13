@@ -10,11 +10,7 @@ const port = process.env.PORT || 4000;
 
 
 
-const io = new Server(server, {
-  cors: {
-    origin: "*",
-  },
-});
+const io = new Server(server);
 
 
 
